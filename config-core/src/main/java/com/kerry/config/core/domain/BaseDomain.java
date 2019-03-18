@@ -13,5 +13,7 @@ public class BaseDomain {
 
 	private String modifier;
 
-	private Date gmt;
+	private Date gmtModifier;
+
+	private Date gmtCreator;
 }
