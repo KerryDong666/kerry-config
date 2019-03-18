@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: kerry-server
+  cloud:
+    config:
+      uri: https://www.baidu.com
+#      label: ${ENV_TYPE}
