@@ -6,6 +6,4 @@ package com.kerry.config.client.autoconfig.annotation;
 
 public @interface EnableKerryConfig {
 
-
-
 }

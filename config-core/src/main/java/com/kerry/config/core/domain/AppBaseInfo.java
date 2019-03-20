@@ -7,4 +7,5 @@ package com.kerry.config.core.domain;
 public class AppBaseInfo {
 
 	private String project;
+
 }

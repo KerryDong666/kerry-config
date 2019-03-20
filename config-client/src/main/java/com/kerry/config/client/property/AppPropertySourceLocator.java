@@ -1,7 +1,7 @@
 package com.kerry.config.client.property;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kerry.config.client.util.EnvironmentUtil;
+import com.kerry.config.client.util.EnvUtil;
 import org.springframework.cloud.bootstrap.config.PropertySourceLocator;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
@@ -21,7 +21,7 @@ public class AppPropertySourceLocator implements PropertySourceLocator {
 		String url = environment.getProperty("spring.cloud.config.uri");
 
 		// 获取应用名
-		String applicationName = EnvironmentUtil.getApplicationName(environment);
+		String applicationName = EnvUtil.getApplicationName(environment);
 		// 应用运行环境
 		String appMode = System.getenv("ENV_TYPE");
 
@@ -46,7 +46,7 @@ public class AppPropertySourceLocator implements PropertySourceLocator {
 	}
 
 	public static void main(String[] args) {
-		String java_home = System.getenv("HADOOP_HOME");
+		String java_home = System.getProperty("HADOOP_HOME");
 		System.out.println(java_home);
 		//String java_home1 = System.getenv("JAVA_HOME");
 		//System.out.println(java_home1);

@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
  * @author kerry dong
  * @date 2019/3/18
  */
-public class EnvironmentUtil {
+public class EnvUtil {
 
 	private Environment environment;
 
@@ -21,4 +21,5 @@ public class EnvironmentUtil {
 		String appName = environment.getProperty(APPLICATION_NAME_KEY);
 		return appName;
 	}
+
 }
