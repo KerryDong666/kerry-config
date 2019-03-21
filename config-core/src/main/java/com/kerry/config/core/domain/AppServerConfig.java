@@ -1,12 +1,15 @@
 package com.kerry.config.core.domain;
 
+import javax.persistence.Entity;
+
 /**
  * @author kerry dong
  * @date 2019/3/15
  */
-public class AppServiceConfig {
+@Entity
+public class AppServerConfig extends BaseDomain {
 
-	private String envType;
+	private String env;
 
 	private String key;
 
@@ -14,7 +17,17 @@ public class AppServiceConfig {
 
 	private String remark;
 
+	private Integer valid;
+
 	private Integer version;
+
+	public String getEnv() {
+		return env;
+	}
+
+	public void setEnv(String env) {
+		this.env = env;
+	}
 
 	public Integer getVersion() {
 		return version;

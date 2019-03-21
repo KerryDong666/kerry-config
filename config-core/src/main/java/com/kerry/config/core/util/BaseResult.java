@@ -6,19 +6,19 @@ package com.kerry.config.core.util;
  */
 public class BaseResult<T> {
 
-	private static final String SUCCESS = "0";
+	private static final int SUCCESS = 200;
 
-	private String code;
+	private int code;
 
 	private String msg;
 
 	private T result;
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 

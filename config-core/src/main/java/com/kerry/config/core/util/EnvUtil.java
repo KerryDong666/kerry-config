@@ -1,6 +1,4 @@
-package com.kerry.config.client.util;
-
-import org.springframework.core.env.Environment;
+package com.kerry.config.core.util;
 
 /**
  * @author kerry dong
@@ -8,7 +6,6 @@ import org.springframework.core.env.Environment;
  */
 public class EnvUtil {
 
-	private Environment environment;
 
 	private static final String TEST_MODE = "test";
 	private static final String PRE_MODE = "pre";
@@ -17,9 +14,5 @@ public class EnvUtil {
 
 	private static final String APPLICATION_NAME_KEY = "spring.application.name";
 
-	public static String getApplicationName(Environment environment){
-		String appName = environment.getProperty(APPLICATION_NAME_KEY);
-		return appName;
-	}
 
 }

@@ -1,11 +1,9 @@
-package com.kerry.config.client.util;
+package com.kerry.config.core.util;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -15,12 +13,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Http client util base by okhttp3
+ *
  * @author kerry dong
  * @date 2019/3/18
  */
 public class HttpClient {
-
-	private static final Logger logger = LoggerFactory.getLogger(HttpClient.class);
 
 	private static HttpClient instance = new HttpClient();
 
@@ -31,22 +29,18 @@ public class HttpClient {
 	private HttpClient() {
 	}
 
-	public Response sendGetRequest(String url) {
-		OkHttpClient okHttpClient = new OkHttpClient().newBuilder().connectTimeout(65L, TimeUnit.SECONDS).readTimeout(70L, TimeUnit.SECONDS).build();
+	public Response sendGetRequest(String url, Long connectTimeout, Long readTimeout) throws IOException{
+		OkHttpClient okHttpClient = new OkHttpClient().newBuilder().connectTimeout(connectTimeout, TimeUnit.SECONDS)
+				.readTimeout(readTimeout, TimeUnit.SECONDS).build();
 		Request request = new Request.Builder()
 				.url(url)
 				.build();
 		Call call = okHttpClient.newCall(request);
-		Response response = null;
-		try {
-			response = call.execute();
-			//if (response.isSuccessful()) {
-			//	return response.body().toString();
-			//}
-		} catch (IOException e) {
-			logger.error("", e);
-		}
-		return response;
+		return call.execute();
+	}
+
+	public Response sendGetRequest(String url) throws IOException{
+		return sendGetRequest(url, 10000L, 10000L);
 	}
 
 	public static void main(String[] args) {
@@ -54,9 +48,9 @@ public class HttpClient {
 		//System.out.println(s);
 		HttpClient instance = HttpClient.getInstance();
 		ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
-		executorService.scheduleWithFixedDelay(() ->{
+		executorService.scheduleWithFixedDelay(() -> {
 
-			Response response = instance.sendGetRequest("http://localhost:8080/watch/pwd");
+			Response response = null;
 
 			if (response.code() == HttpURLConnection.HTTP_NOT_MODIFIED) {
 				System.out.println("time : " + new Date().toLocaleString() + "配置没有变化");

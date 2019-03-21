@@ -1,5 +1,7 @@
 package com.kerry.config.client;
 
+import com.kerry.config.core.util.HttpClient;
+import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -22,6 +24,9 @@ public class ConfigClientApplication {
 		//System.out.println(bean.url);
 		//System.out.println(bean.port);
 		System.out.println(bean.test);
+		HttpClient instance = HttpClient.getInstance();
+		Response response = instance.sendGetRequest("http://www.baidu.com");
+		System.out.println(response.code());
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.kerry.config.client.property;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kerry.config.client.util.EnvUtil;
 import org.springframework.cloud.bootstrap.config.PropertySourceLocator;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertySource;
@@ -21,7 +20,7 @@ public class AppPropertySourceLocator implements PropertySourceLocator {
 		String url = environment.getProperty("spring.cloud.config.uri");
 
 		// 获取应用名
-		String applicationName = EnvUtil.getApplicationName(environment);
+		String applicationName = null;
 		// 应用运行环境
 		String appMode = System.getenv("ENV_TYPE");
 

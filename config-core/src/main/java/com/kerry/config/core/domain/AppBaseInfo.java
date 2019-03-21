@@ -1,11 +1,32 @@
 package com.kerry.config.core.domain;
 
+import javax.persistence.Entity;
+
 /**
  * @author kerry dong
  * @date 2019/3/19
  */
-public class AppBaseInfo {
+@Entity
+public class AppBaseInfo extends BaseDomain{
 
-	private String project;
+	private String name;
+
+	private String remark;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
 }
