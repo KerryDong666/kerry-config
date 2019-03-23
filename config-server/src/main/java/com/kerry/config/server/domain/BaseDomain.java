@@ -1,4 +1,4 @@
-package com.kerry.config.core.domain;
+package com.kerry.config.server.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

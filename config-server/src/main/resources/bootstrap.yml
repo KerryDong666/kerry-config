@@ -1,3 +1,10 @@
 spring:
   application:
     name: config-server
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: http://github.com/KerryDong666/starter-kerry-rpc/blob/master/src/main/resources
+#          username: KerryDong666
+#          password: Dc520134

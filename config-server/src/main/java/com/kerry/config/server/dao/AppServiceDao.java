@@ -1,7 +1,7 @@
 package com.kerry.config.server.dao;
 
 
-import com.kerry.config.core.domain.AppBaseInfo;
+import com.kerry.config.server.domain.AppBaseInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -17,6 +17,12 @@ public class AppServerConfigService {
 	private AppServerConfigDao appServerConfigDao;
 
 	public BaseResult<JSONObject> queryConfigByAppName(){
-		return null;
+		BaseResult<JSONObject> result = new BaseResult<>();
+		JSONObject json = new JSONObject();
+		json.put("a", "aaa");
+		json.put("b", "bbb");
+		result.setResult(json);
+		result.setCodeSuccess();
+		return result;
 	}
 }
