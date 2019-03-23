@@ -1,16 +1,18 @@
 package com.kerry.config.server.dao;
 
-import com.kerry.config.server.domain.AppServerConfig;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import com.kerry.config.core.domain.AppServerConfig;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author kerry dong
  * @date 2019/3/23
  */
+@Mapper
+public interface AppServerConfigDao {
 
-public interface AppServerConfigDao extends JpaRepository<AppServerConfig, Long>,JpaSpecificationExecutor<AppServerConfig>,Serializable {
+	List<AppServerConfig> queryAppConfig(@Param("appName") String appName, @Param("deployType") String deployType);
 
 }

@@ -15,15 +15,19 @@ public class AppDemoApplication {
 
 	@Value("${name}")
 	private String name;
+
+	@Value("${price}")
+	private String price;
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(AppDemoApplication.class, args);
 		AppDemoApplication bean = context.getBean(AppDemoApplication.class);
-		System.out.println(bean.name);
+		System.out.println(bean.price);
 	}
 
 	@RequestMapping("/test")
 	public String test(){
-		return name;
+		return price;
 	}
 
 }

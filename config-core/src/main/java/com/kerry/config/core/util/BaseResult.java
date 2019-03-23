@@ -42,5 +42,9 @@ public class BaseResult<T> {
 		this.code = SUCCESS;
 	}
 
+	public void setSuccess(T data){
+		setCodeSuccess();
+		this.result = data;
+	}
 
 }
