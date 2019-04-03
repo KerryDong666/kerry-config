@@ -1,6 +1,5 @@
 package com.kerry.config.app.demo;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,21 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 @ComponentScan("com.kerry.config")
 public class AppDemoApplication {
 
-	@Value("${name}")
-	private String name;
-
-	@Value("${price}")
-	private String price;
+	//@Value("${name}")
+	//private String name;
+	//
+	//@Value("${price}")
+	//private String price;
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(AppDemoApplication.class, args);
 		AppDemoApplication bean = context.getBean(AppDemoApplication.class);
-		System.out.println(bean.price);
+		//System.out.println(bean.price);
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping("/get")
 	public String test(){
-		return price;
+		return "success";
 	}
 
 }

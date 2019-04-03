@@ -6,11 +6,10 @@ import com.kerry.config.server.dao.AppServerConfigDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.config.environment.Environment;
 import org.springframework.cloud.config.environment.PropertySource;
 import org.springframework.context.EnvironmentAware;
-import org.springframework.cloud.config.environment.Environment;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -33,7 +32,7 @@ public class AppServerConfigService implements EnvironmentAware {
 
 	private static final String CONFIG_SERVER = "config_server";
 
-	@RequestMapping("env")
+	//@RequestMapping("env") test
 	public org.springframework.cloud.config.environment.Environment queryConfigByAppName(String appName, String deployType, String label) {
 		logger.debug("begin load config by db");
 		List<AppServerConfig> configs = appServerConfigDao.queryAppConfig(appName, deployType);

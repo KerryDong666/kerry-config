@@ -15,6 +15,9 @@ public class DbEnvironmentRepositoryProperties implements EnvironmentRepositoryP
 
 	private String label = "master";
 
+	/**
+	 * 这里保留一个属性,便于后期做拓展
+	 */
 	private String configSourceType = "db";
 
 	@Override
